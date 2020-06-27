@@ -1,9 +1,6 @@
+
 <h1>Hello {name}!</h1>
 <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-
-<h2 class="routetitle">Home!</h2>
-
-<p>Welcome to this sample code!</p>
 
 <script lang="typescript">
 	export let name: string = 'world';
