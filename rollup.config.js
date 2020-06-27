@@ -37,7 +37,9 @@ export default {
 			 * */
 			preprocess: [
 			  typescript({ /* typescript options */ }),
-			  scss({ /* scss options */ }),
+			  scss({
+				data: `@import './src/style/root.scss';`
+			  }),
 			]
 		}),
 

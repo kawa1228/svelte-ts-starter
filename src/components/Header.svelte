@@ -1,6 +1,6 @@
 <header class:visible="{visible || open}">
     <nav>
-        <Icon name={href} size={size}/>
+        <Icon name="/svg/svelte-logo.svg#icon" size={30}/>
         <ul class="primary">
             <li>
                 <a href="/" use:link>Home</a>
@@ -15,9 +15,6 @@
 <script lang="typescript">
     import {link} from 'svelte-spa-router';
 	import Icon from "../components/Icon.svelte";
-
-    let size = 20;
-    let href = "/svg/svelte-logo.svg#icon";
 
 	let open = false;
     let visible = true;
