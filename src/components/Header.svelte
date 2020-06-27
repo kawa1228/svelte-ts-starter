@@ -1,7 +1,10 @@
-<header class:visible="{visible || open}">
+
+<svelte:window on:hashchange={handle_hashchange} on:scroll={handle_scroll} />
+
+<header class:visible="{visible}">
     <nav>
         <Icon name="/svg/svelte-logo.svg#icon" size={30}/>
-        <ul class="primary">
+        <ul>
             <li>
                 <a href="/" use:link>Home</a>
             </li>
@@ -16,8 +19,22 @@
     import {link} from 'svelte-spa-router';
 	import Icon from "../components/Icon.svelte";
 
-	let open = false;
-    let visible = true;
+    let visible: Boolean = true;
+
+    let hash_changed: Boolean = false;
+    function handle_hashchange() {
+        hash_changed = true;
+    }
+
+    let last_scroll: Number = 0;
+    function handle_scroll() {
+        const scroll = window.pageYOffset;
+		if (!hash_changed) {
+			visible = (scroll < 50 || scroll < last_scroll);
+        }
+		last_scroll = scroll;
+		hash_changed = false
+    }
 
 </script>
 
