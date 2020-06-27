@@ -22,12 +22,40 @@
 </script>
 
 <style lang="scss">
+    header {
+        position: fixed;
+        height: var(--nav-h);
+        width: 100vw;
+        padding: 0 var(--side-nav);
+        background-color: #fff;
+        box-shadow: 0 -0.4rem 0.9rem 0.2rem rgba(0,0,0,.5);
+        transform: translate(0,calc(-100% - 1rem));
+        transition: transform 0.2s;
+
+        &.visible {
+            transform: none;
+        }
+    }
     nav {
+        width: 100vw;
+        height: var(--nav-h);
+        padding: 0 var(--side-nav) 0 var(--side-nav);
         display: flex;
         justify-content: space-between;
+        align-items: center;
+
+		position: fixed;
+		top: 0;
+		left: 0;
 
         ul {
             display: flex;
+        }
+
+        li {
+            a {
+                padding: 0 .8rem;
+            }
         }
     }
 </style>
