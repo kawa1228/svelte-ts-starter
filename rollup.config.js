@@ -1,4 +1,7 @@
 import svelte from 'rollup-plugin-svelte';
+import autoPreprocess from 'svelte-preprocess'
+import { scss, typescript } from 'svelte-preprocess'
+
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
@@ -22,7 +25,20 @@ export default {
 			// a separate file - better for performance
 			css: css => {
 				css.write('public/build/bundle.css');
-			}
+			},
+			/**
+			 * Auto preprocess supported languages with
+			 * '<template>'/'external src files' support
+			 **/
+			preprocess: autoPreprocess({ /* options */ }),
+			/**
+			 * It is also possible to manually enqueue
+			 * stand-alone processors
+			 * */
+			preprocess: [
+			  typescript({ /* typescript options */ }),
+			  scss({ /* scss options */ }),
+			]
 		}),
 
 		// If you have external dependencies installed from
