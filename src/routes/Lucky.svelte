@@ -1,3 +1,11 @@
 <h1 id="lucky">You're in!</h1>
 
-<p>This route has a pre-condition that stops it from loading 50% of the time. So, you were lucky you could load this route! Now, try refreshing the page.</p>
+<h2>The count is {$count}</h2>
+
+<button on:click={count.increment}>+</button>
+<button on:click={count.decrement}>-</button>
+<button on:click={count.reset}>reset</button>
+
+<script lang="typescript">
+    import { count } from '../store/count';
+</script>
