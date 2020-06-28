@@ -91,3 +91,14 @@ Then, from within your project folder:
 npm run build
 surge public my-project.surge.sh
 ```
+## set environment variables
+
+```.env
+API_KEY=**********
+BASE_URL=**********
+```
+
+```App.svelte
+const isProd = process.env.isProd
+console.log(isProd)
+```
